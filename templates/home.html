@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    {% for book in books %}
+    <div class="col-md-4 mb-2 mt-2">
+    <a href="{% url 'detail' book.id %}"><h4>{{book.name}}</h4><br>
+        <img src="{{book.img.url}}" style="height:300px;width:300px;"><br></a>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

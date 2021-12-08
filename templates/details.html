@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 >{{book.name}}</h1>
+    <img src="{{book.img.url}}" style="height:300px;width:300px;">
+    <p>{{book.desc}}</p>
+    <h5>price :{{book.price}}</h5>
+<a class="btn btn-primary" href="{% url 'update' book.id %}">update</a>
+<a class="btn btn-danger" href="{% url 'delete' book.id %}">update</a>
+{% endblock %}
