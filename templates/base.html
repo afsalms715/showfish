@@ -10,7 +10,7 @@
     </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand text-white" href="{% url 'home' %}"><h1>BOOK STORE</h1></a>
+  <a class="navbar-brand text-white" href="{% url 'home' %}"><h1><span class="text-danger">SHOWFISH</span> STORE</h1></a>
   <form class="form-inline" method="get" action="{% url 'search' %}">
 <!--      {% csrf_token %}-->
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
@@ -19,12 +19,16 @@
 
 </nav>
 <div class="container">
+    {% if user.is_authenticated %}
 <a class="btn btn-primary mt-3 mb-3" href="{% url 'add' %}">add-item</a>
+    <h3 class="text-center">Admin page</h3>
+    {% endif %}
     {% for msg in messages %}
     <h3 class="text-center">{{msg}}</h3>
     {% endfor %}<br>
 {% block content %}
 {% endblock %}
+
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

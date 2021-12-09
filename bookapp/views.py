@@ -1,4 +1,4 @@
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.shortcuts import render, redirect
 from .models import bookShop
 from .forms import bookform
@@ -45,4 +45,20 @@ def search(request):
         messages.info(request,"not found")
         return redirect('home')
 
+def login(request):
+    if request.method=='POST':
+        username=request.POST['username']
+        password=request.POST['password']
+        user=auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return redirect('home')
+        else:
+            messages.error(request,'invaliid username or password')
+            return redirect('login')
 
+    return render(request,'login.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
