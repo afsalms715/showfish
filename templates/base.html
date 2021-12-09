@@ -10,7 +10,7 @@
     </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand text-white">BOOK STORE</a>
+  <a class="navbar-brand text-white" href="{% url 'home' %}"><h1>BOOK STORE</h1></a>
   <form class="form-inline" method="get" action="{% url 'search' %}">
 <!--      {% csrf_token %}-->
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">

@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1 >{{book.name}}</h1>
-    <img src="{{book.img.url}}" style="height:300px;width:300px;">
-    <p>{{book.desc}}</p>
-    <h5>price :{{book.price}}</h5>
-<a class="btn btn-primary" href="{% url 'update' book.id %}">update</a>
-<a class="btn btn-danger" href="{% url 'delete' book.id %}">update</a>
+
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{book.img.url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{book.name}}</h5>
+    <p class="card-text">{{book.desc}}</p>
+      <h5 class="card-text">price :${{book.price}}</h5>
+    <a class="btn btn-primary" href="{% url 'update' book.id %}">update</a>
+<a class="btn btn-danger" href="{% url 'delete' book.id %}">delete</a>
+
+  </div>
+</div>
 {% endblock %}
